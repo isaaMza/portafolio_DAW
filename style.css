@@ -1,0 +1,396 @@
+:root{
+    --color-1: #0d0d0d;   /* negro casi puro, para texto y fondos oscuros */
+    --color-2: #fafafa;   /* blanco cálido, fondo principal */
+    --color-line: #d9d9d9; /* gris para líneas y bordes */
+    --color-muted: #6b6b6b; /* gris para texto secundario */
+
+    --font-display: "Space Grotesk", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+    --font-body: -apple-system, "Segoe UI", sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: var(--color-2);
+    color: var(--color-1);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------- NAVBAR ---------- */
+.bg-1{
+    background-color: var(--color-2);
+    border-bottom: 1px solid var(--color-line);
+}
+
+.logo-mark{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: var(--color-1) !important;
+}
+
+.logo-dot{
+    color: var(--color-muted);
+}
+
+.navbar-nav .nav-link{
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-1);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+}
+
+.navbar-nav .nav-link:hover{
+    border-bottom-color: var(--color-1);
+}
+
+/* ---------- SECTION TITLES ---------- */
+.section-title{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.25rem;
+}
+
+.hero-label,
+.about-eyebrow{
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-bottom: 0.75rem;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+    position: relative;
+    min-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.hero-grid{
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--color-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.5;
+    mask-image: radial-gradient(ellipse at 30% 40%, black 15%, transparent 70%);
+}
+
+.hero-content{
+    position: relative;
+    z-index: 1;
+}
+
+.hero-name{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.75rem, 8vw, 6rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin: 0 0 1.25rem;
+}
+
+.hero-career{
+    font-family: var(--font-mono);
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    color: var(--color-muted);
+    max-width: 34ch;
+}
+
+.hero-scroll{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.hero-scroll span{
+    width: 1px;
+    height: 40px;
+    background: var(--color-1);
+    display: block;
+    animation: scrollLine 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollLine{
+    0%   { transform: scaleY(0.2); transform-origin: top; }
+    50%  { transform: scaleY(1);   transform-origin: top; }
+    100% { transform: scaleY(0.2); transform-origin: bottom; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .hero-scroll span{ animation: none; }
+}
+
+/* ---------- FREEFORM SECTION ---------- */
+.freeform{
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.freeform-text{
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 46ch;
+    color: var(--color-1);
+}
+
+.tag-row{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    margin: 0;
+}
+
+.tag-row li{
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    color: var(--color-1);
+}
+
+/* ---------- ABOUT ---------- */
+.about{
+    padding: 5rem 0 6rem;
+}
+
+.about-text{
+    color: var(--color-muted);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+}
+
+.about-link{
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--color-1);
+    padding-bottom: 2px;
+}
+
+/* ---------- PAGE HEADER (educación / proyectos) ---------- */
+.page-header{
+    padding: 5rem 0 3rem;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.page-title{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* ---------- EDUCACIÓN ---------- */
+.edu-section{
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.edu-section.alt{
+    background-color: #f2f2f2;
+}
+
+.timeline{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid var(--color-line);
+}
+
+.timeline-item{
+    padding: 0 0 2rem 1.5rem;
+    position: relative;
+}
+
+.timeline-item::before{
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--color-1);
+}
+
+.timeline-date{
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-title{
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+.timeline-place{
+    color: var(--color-muted);
+    margin: 0;
+}
+
+.cert-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cert-list li{
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--color-line);
+    line-height: 1.4;
+}
+
+.cert-list li:last-child{
+    border-bottom: none;
+}
+
+.job{
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.job:last-child{
+    border-bottom: none;
+}
+
+.job-head{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.job-title{
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.job-date{
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin: 0;
+}
+
+.job-text{
+    color: var(--color-muted);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+}
+
+.job-subtitle{
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.job-list{
+    padding-left: 1.1rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+/* ---------- PROYECTOS ---------- */
+.projects-gallery{
+    padding: 4rem 0 6rem;
+}
+
+.project-card{
+    display: block;
+    border: 1px solid var(--color-line);
+    padding: 1.25rem;
+    height: 100%;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.project-card:hover{
+    border-color: var(--color-1);
+    transform: translateY(-3px);
+}
+
+.project-thumb{
+    aspect-ratio: 4 / 3;
+    margin-bottom: 1rem;
+    background-color: #eeeeee;
+    background-repeat: repeat;
+}
+
+.thumb-1{
+    background-image: radial-gradient(var(--color-1) 1px, transparent 1px);
+    background-size: 10px 10px;
+    background-color: #f0f0f0;
+}
+
+.thumb-2{
+    background-image: repeating-linear-gradient(45deg, var(--color-1) 0, var(--color-1) 1px, transparent 1px, transparent 10px);
+    background-color: #f0f0f0;
+}
+
+.thumb-3{
+    background-image: repeating-linear-gradient(90deg, var(--color-line) 0, var(--color-line) 1px, transparent 1px, transparent 14px);
+    background-color: #f6f6f6;
+}
+
+.project-tag{
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    margin-bottom: 0.35rem;
+}
+
+.project-name{
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.project-desc{
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.project-card-pending{
+    opacity: 0.55;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer{
+    padding: 2rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-muted);
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proyectos — Ana Isabel Meza</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <header class="page-header">
+      <div class="container-fluid px-4">
+        <p class="hero-label">proyectos</p>
+        <h1 class="page-title">Catálogo de trabajos</h1>
+      </div>
+    </header>
+
+    <section class="projects-gallery">
+      <div class="container-fluid px-4">
+        <div class="row g-4">
+
+          <!-- PROYECTO 1 -->
+          <div class="col-md-6 col-lg-4">
+            <a href="#" class="project-card">
+              <div class="project-thumb thumb-1" aria-hidden="true"></div>
+              <p class="project-tag">Next Gen x BBVA</p>
+              <h3 class="project-name">App BBVA — Hackathon Swift Community</h3>
+              <p class="project-desc">
+                Aplicación desarrollada para el Hackathon Nacional Swift Community Change Makers 2024,
+                ganadora de la edición.
+              </p>
+            </a>
+          </div>
+
+          <!-- PROYECTO 2 -->
+          <div class="col-md-6 col-lg-4">
+            <a href="#" class="project-card">
+              <div class="project-thumb thumb-2" aria-hidden="true"></div>
+              <p class="project-tag">TouchDesigner</p>
+              <h3 class="project-name">Visuales reactivos a sonido</h3>
+              <p class="project-desc">
+                Sistema de visuales en tiempo real que reacciona a audio, con animaciones basadas en
+                detección de puntos, mapeo dinámico y manipulación de color por canales RGB.
+              </p>
+            </a>
+          </div>
+
+          <!-- PROYECTO 3 (placeholder) -->
+          <div class="col-md-6 col-lg-4">
+            <a href="#" class="project-card project-card-pending">
+              <div class="project-thumb thumb-3" aria-hidden="true"></div>
+              <p class="project-tag">próximamente</p>
+              <h3 class="project-name">Por definir</h3>
+              <p class="project-desc">
+                Espacio reservado para el siguiente proyecto del catálogo.
+              </p>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container-fluid px-4">
+        <p>Ana Isabel Meza Espinosa — hecho con Bootstrap</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+        function includeHTML(id, archivo){
+            fetch(archivo)
+            .then(response => response.text())
+            .then(html => { document.getElementById(id).innerHTML = html; });
+        }
+
+        includeHTML('navbar', 'navbar.html');
+    </script>
+  </body>
+</html>

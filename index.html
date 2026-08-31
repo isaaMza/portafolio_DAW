@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ana Isabel Meza Espinosa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container-fluid px-4 hero-content">
+        <p class="hero-label">portafolio — 2026</p>
+        <h1 class="hero-name">Ana Isabel<br>Meza Espinosa</h1>
+        <p class="hero-career">Ing. en Inteligencia de Datos y Ciberseguridad</p>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span></span>
+      </div>
+    </header>
+
+    <!-- SECCIÓN LIBRE -->
+    <section class="freeform">
+      <div class="container-fluid px-4">
+        <div class="row gy-4">
+          <div class="col-lg-5">
+            <h2 class="section-title">Lo que me mueve</h2>
+            <p class="freeform-text">
+              Cruzo datos, seguridad y diseño de producto. Me interesa lo que pasa cuando un modelo
+              predictivo, un dashboard o una interfaz tienen que sostenerse en el mundo real: con datos
+              incompletos, usuarios distraídos y riesgos que hay que anticipar.
+            </p>
+          </div>
+          <div class="col-lg-7">
+            <ul class="tag-row">
+              <li>Python</li>
+              <li>Power BI</li>
+              <li>Análisis de datos</li>
+              <li>PLN</li>
+              <li>Ciberseguridad</li>
+              <li>SAP</li>
+              <li>TouchDesigner</li>
+              <li>Desarrollo iOS</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACERCA DE -->
+    <section class="about">
+      <div class="container-fluid px-4">
+        <h2 class="section-title">Acerca de mí</h2>
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <p class="about-eyebrow">Educación</p>
+            <p class="about-text">
+              Octavo semestre de Ingeniería en Inteligencia de Datos y Ciberseguridad en la
+              Universidad Panamericana, con reconocimientos en hackathons y programas internacionales
+              de emprendimiento.
+            </p>
+            <a href="education.html" class="about-link">ver historial completo →</a>
+          </div>
+          <div class="col-lg-4">
+            <p class="about-eyebrow">Experiencia</p>
+            <p class="about-text">
+              Casi tres años en el iOS Lab de la universidad desarrollando producto, análisis de datos
+              y contenido digital, además de un paso por Supply Chain trabajando con SAP y dashboards
+              operativos.
+            </p>
+            <a href="education.html" class="about-link">ver experiencia →</a>
+          </div>
+          <div class="col-lg-4">
+            <p class="about-eyebrow">Proyectos</p>
+            <p class="about-text">
+              Una muestra de trabajos recientes: una app desarrollada para BBVA, visuales reactivos a
+              sonido hechos en TouchDesigner, y más por venir.
+            </p>
+            <a href="projects.html" class="about-link">ver proyectos →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container-fluid px-4">
+        <p>Ana Isabel Meza Espinosa — hecho con Bootstrap</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+        function includeHTML(id, archivo){
+            fetch(archivo)
+            .then(response => response.text())
+            .then(html => { document.getElementById(id).innerHTML = html; });
+        }
+
+        includeHTML('navbar', 'navbar.html');
+    </script>
+  </body>
+</html>

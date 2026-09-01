@@ -117,6 +117,20 @@ a{
     max-width: 34ch;
 }
 
+.hero-cv-btn{
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border-radius: 0;
+    border-width: 1px;
+    padding: 0.6rem 1.4rem;
+    margin-top: 1.75rem;
+}
+
+.hero-cv-btn:hover{
+    background-color: var(--color-1);
+    color: var(--color-2);
+}
+
 .hero-scroll{
     position: relative;
     z-index: 1;
@@ -157,21 +171,36 @@ a{
 }
 
 .tag-row{
-    list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-    padding: 0;
-    margin: 0;
 }
 
-.tag-row li{
+.skill-badge{
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-weight: 400;
+    font-size: 0.78rem;
     border: 1px solid var(--color-line);
     border-radius: 999px;
-    padding: 0.4rem 0.9rem;
+    padding: 0.45rem 0.9rem;
     color: var(--color-1);
+    background-color: transparent;
+}
+
+.hobby-list{
+    padding: 0;
+    margin: 0.25rem 0 0;
+}
+
+.hobby-list .list-inline-item{
+    display: block;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-line);
+    color: var(--color-1);
+}
+
+.hobby-list .list-inline-item:first-child{
+    padding-top: 0;
 }
 
 /* ---------- ABOUT ---------- */
@@ -327,9 +356,8 @@ a{
 }
 
 .project-card{
-    display: block;
     border: 1px solid var(--color-line);
-    padding: 1.25rem;
+    border-radius: 0;
     height: 100%;
     transition: border-color 0.15s ease, transform 0.15s ease;
 }
@@ -341,9 +369,9 @@ a{
 
 .project-thumb{
     aspect-ratio: 4 / 3;
-    margin-bottom: 1rem;
     background-color: #eeeeee;
     background-repeat: repeat;
+    border-radius: 0;
 }
 
 .thumb-1{

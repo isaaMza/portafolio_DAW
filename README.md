@@ -38,5 +38,7 @@ proyectos) fue proporcionado directamente por Ana Isabel Meza Espinosa.
 - Franja negra con frase (`statement-band`) inspirada en el estilo bold/minimal del portafolio en Framer
 - Logo de la navbar cambiado a "._sabel"
 
-## Pendientes
-- Enlazar los proyectos a sus repositorios de GitHub, video o sitio publicado (siguen en `href="#"`)
+## Inspiración de estos portafolios 
+- https://lazyeight.design/
+- https://bleed.com/work/skyfall
+- https://www.seungmee-lee.com/

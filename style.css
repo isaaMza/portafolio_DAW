@@ -33,15 +33,11 @@ a{
 }
 
 .logo-mark{
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: -0.02em;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
     color: var(--color-1) !important;
-}
-
-.logo-dot{
-    color: var(--color-muted);
 }
 
 .navbar-nav .nav-link{
@@ -57,7 +53,7 @@ a{
     border-bottom-color: var(--color-1);
 }
 
-/* para los titulos estos */
+/* ---------- SECTION TITLES ---------- */
 .section-title{
     font-family: var(--font-display);
     font-weight: 600;
@@ -117,18 +113,36 @@ a{
     max-width: 34ch;
 }
 
+.hero-btn-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.75rem;
+}
+
 .hero-cv-btn{
     font-family: var(--font-mono);
     font-size: 0.85rem;
     border-radius: 0;
     border-width: 1px;
     padding: 0.6rem 1.4rem;
-    margin-top: 1.75rem;
+    margin-top: 0;
 }
 
-.hero-cv-btn:hover{
+.btn-outline-dark.hero-cv-btn:hover{
     background-color: var(--color-1);
     color: var(--color-2);
+}
+
+.btn-dark.hero-cv-btn{
+    background-color: var(--color-1);
+    border-color: var(--color-1);
+    color: var(--color-2);
+}
+
+.btn-dark.hero-cv-btn:hover{
+    background-color: transparent;
+    color: var(--color-1);
 }
 
 .hero-scroll{
@@ -201,6 +215,26 @@ a{
 
 .hobby-list .list-inline-item:first-child{
     padding-top: 0;
+}
+
+/* ---------- STATEMENT BAND ---------- */
+/* Sección de pantalla completa en negro con una frase grande, para dar un
+   momento de "respiro" visual entre el hero y el resumen, al estilo del
+   otro portafolio (fondo oscuro + tipografía grande, look bold/minimal). */
+.statement-band{
+    background-color: var(--color-1);
+    padding: 6rem 0;
+}
+
+.statement-text{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 4.2vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--color-2);
+    max-width: 22ch;
+    margin: 0;
 }
 
 /* ---------- ABOUT ---------- */
@@ -367,27 +401,15 @@ a{
     transform: translateY(-3px);
 }
 
-.project-thumb{
+/* project-thumb-img: la imagen real de cada proyecto (BBVA, TouchDesigner,
+   Pokédex). object-fit: cover recorta la foto para llenar el recuadro sin
+   deformarla, sin importar sus proporciones originales. */
+.project-thumb-img{
     aspect-ratio: 4 / 3;
-    background-color: #eeeeee;
-    background-repeat: repeat;
+    width: 100%;
+    object-fit: cover;
     border-radius: 0;
-}
-
-.thumb-1{
-    background-image: radial-gradient(var(--color-1) 1px, transparent 1px);
-    background-size: 10px 10px;
-    background-color: #f0f0f0;
-}
-
-.thumb-2{
-    background-image: repeating-linear-gradient(45deg, var(--color-1) 0, var(--color-1) 1px, transparent 1px, transparent 10px);
-    background-color: #f0f0f0;
-}
-
-.thumb-3{
-    background-image: repeating-linear-gradient(90deg, var(--color-line) 0, var(--color-line) 1px, transparent 1px, transparent 14px);
-    background-color: #f6f6f6;
+    filter: grayscale(15%);
 }
 
 .project-tag{

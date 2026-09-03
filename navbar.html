@@ -1,10 +1,44 @@
+<!--
+  NAVBAR.HTML
+  Esta barra de navegación es un archivo aparte porque se repite igual en
+  todas las páginas (index, education, projects). En vez de copiar y pegar
+  el mismo código en cada .html, cada página trae un <div id="navbar"></div>
+  vacío y un script al final que hace fetch() de este archivo y lo inyecta
+  ahí. Así, si cambio un link del menú, solo lo cambio aquí una vez.
+-->
+
+<!--
+  navbar / navbar-expand-lg -> componentes de Bootstrap: navbar es la barra
+  en sí, navbar-expand-lg dice "a partir del tamaño lg (pantallas grandes)
+  muéstrate en una sola línea; abajo de eso, colapsa en menú hamburguesa".
+  bg-1 es MI clase (definida en style.css) para el color de fondo.
+-->
 <nav class="navbar navbar-expand-lg bg-1">
+    <!-- container-fluid: utilidad de Bootstrap que da padding lateral y
+         ocupa el 100% del ancho (a diferencia de .container, que centra
+         el contenido con un máximo de ancho). -->
     <div class="container-fluid px-4">
-        <a class="navbar-brand logo-mark" href="index.html">A<span class="logo-dot">I</span>M</a>
+
+        <!-- navbar-brand: clase de Bootstrap pensada para el logo/nombre
+             de marca dentro de la navbar. Uso "._sabel" como firma personal,
+             el mismo identificador que usas en tu otro portafolio. -->
+        <a class="navbar-brand logo-mark" href="index.html">._sabel</a>
+
+        <!-- navbar-toggler: el botón "hamburguesa" que aparece en móvil.
+             data-bs-toggle / data-bs-target son atributos de Bootstrap
+             (no míos) que le dicen a su JavaScript qué elemento debe
+             mostrar/ocultar al hacer clic: el <div id="navbarSupportedContent">
+             de abajo. -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- collapse / navbar-collapse: el contenedor que se colapsa en móvil
+             y se expande en pantallas grandes gracias a navbar-expand-lg. -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- navbar-nav: lista de enlaces con el estilo de Bootstrap.
+                 ms-auto: utilidad de Bootstrap "margin-start: auto", empuja
+                 los links hacia la derecha. -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">home</a>

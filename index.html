@@ -1,36 +1,90 @@
+<!--
+  INDEX.HTML — Landing page del portafolio
+
+  Estructura general de la página (misma lógica en las 3 páginas):
+  1. <head> carga Bootstrap (CSS), Google Fonts, y AL FINAL mi style.css
+     (para que mis reglas puedan sobreescribir las de Bootstrap si hace falta).
+  2. <div id="navbar"></div> es un contenedor vacío. Al final del <body>,
+     un script hace fetch('navbar.html') y mete ese HTML aquí adentro.
+     Esto evita repetir el menú en cada página.
+  3. Cada sección usa el grid de Bootstrap (container-fluid / row / col-*)
+     para el acomodo, y clases propias (definidas en style.css) para
+     tipografía, color y detalles visuales.
+-->
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portafolio ._sabel</title>
+    <title>Ana Isabel Meza Espinosa — Portafolio</title>
+
+    <!-- Bootstrap: framework CSS que trae el sistema de grid (container/row/col),
+         componentes ya armados (navbar, botones, cards, badges) y utilidades
+         (px-4, mb-4, etc.) para no escribir CSS de cero para cosas básicas. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Google Fonts: Space Grotesk para títulos (look más geométrico/técnico)
+         e IBM Plex Mono para etiquetas pequeñas (le da un aire de "código",
+         acorde a la carrera). Se cargan aquí y se usan en style.css con
+         var(--font-display) / var(--font-mono). -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Mi hoja de estilos, cargada DESPUÉS de Bootstrap para poder
+         sobreescribir sus estilos por defecto (colores, radios, etc.). -->
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
+    <!-- Aquí se inyecta navbar.html vía fetch (ver script al final) -->
     <div id="navbar"></div>
 
+    <!-- ======================= HERO ======================= -->
+    <!-- <header> en vez de <div>: es la etiqueta semántica correcta para
+         la portada/introducción de la página. -->
     <header class="hero">
+      <!-- Capa decorativa de fondo (rejilla de puntos), puramente visual,
+           por eso aria-hidden="true" (los lectores de pantalla la ignoran). -->
       <div class="hero-grid" aria-hidden="true"></div>
+
       <div class="container-fluid px-4 hero-content">
         <p class="hero-label">portafolio — 2026</p>
         <h1 class="hero-name">Ana Isabel<br>Meza Espinosa</h1>
         <p class="hero-career">Ing. en Inteligencia de Datos y Ciberseguridad</p>
-        <a href="assets/CV_Ana_Isabel_Meza.pdf" download class="btn btn-outline-dark hero-cv-btn">
-          Descargar CV
-        </a>
+
+        <!-- btn / btn-outline-dark: componente de botón de Bootstrap.
+             download: atributo NATIVO de HTML (no de Bootstrap) que le dice
+             al navegador "no navegues a este link, descarga el archivo". -->
+        <div class="hero-btn-row">
+          <a href="assets/CV_Ana_Isabel_Meza.pdf" download class="btn btn-outline-dark hero-cv-btn">
+            Descargar CV
+          </a>
+          <!-- target="_blank": abre en pestaña nueva. rel="noopener" es una
+               buena práctica de seguridad cuando usas target="_blank" (evita
+               que la página abierta pueda manipular esta pestaña original). -->
+          <a href="https://crowded-tool-223252.framer.app/" target="_blank" rel="noopener" class="btn btn-dark hero-cv-btn">
+            Ver más en ._sabel
+          </a>
+        </div>
       </div>
+
+      <!-- Indicador visual de "scroll" (la línea que se anima abajo del hero) -->
       <div class="hero-scroll" aria-hidden="true">
         <span></span>
       </div>
     </header>
 
-    <!-- ACERCA DE MÍ: descripción, hobbies y skills -->
+    <!-- ================ ACERCA DE MÍ ================ -->
+    <!-- Sección pedida en el requisito: descripción personal + hobbies + skills -->
     <section class="freeform">
       <div class="container-fluid px-4">
         <h2 class="section-title">Acerca de mí</h2>
+
+        <!-- row / col-lg-5 + col-lg-7: en pantallas grandes (lg) la fila se
+             divide en 12 columnas; aquí uso 5 para el texto/hobbies y 7 para
+             las skills. En pantallas chicas, Bootstrap las apila automático
+             (una debajo de otra) porque no puse col-* para tamaños menores.
+             gy-5: utilidad de Bootstrap = "gap vertical" entre columnas cuando
+             se apilan en móvil. -->
         <div class="row gy-5">
           <div class="col-lg-5">
             <p class="freeform-text">
@@ -40,6 +94,9 @@
             </p>
 
             <p class="hero-label mt-4">hobbies e intereses</p>
+            <!-- list-inline / list-inline-item: componente de Bootstrap para
+                 listas sin viñetas. Los pongo en columna con CSS propio
+                 (ver .hobby-list en style.css). -->
             <ul class="list-inline hobby-list">
               <li class="list-inline-item">Surfear</li>
               <li class="list-inline-item">Escribir</li>
@@ -50,6 +107,10 @@
 
           <div class="col-lg-7">
             <p class="hero-label">skills técnicas</p>
+            <!-- badge: componente de Bootstrap para etiquetas pequeñas.
+                 skill-badge es mi clase (en style.css) que le quita el
+                 color por defecto de Bootstrap y le pone borde + forma
+                 de píldora, para que combine con la paleta blanco/negro. -->
             <div class="tag-row mb-4">
               <span class="badge skill-badge">Python</span>
               <span class="badge skill-badge">SQL</span>
@@ -79,10 +140,24 @@
       </div>
     </section>
 
-    <!-- ACERCA DE -->
+    <!-- ================ FRASE / STATEMENT ================ -->
+    <!-- Franja de pantalla completa en negro con una frase grande, inspirada
+         en el estilo bold/minimal de tu otro portafolio (._sabel en Framer).
+         statement-band es mi clase (style.css): invierte los colores
+         (fondo negro, texto blanco) solo en esta sección. -->
+    <section class="statement-band">
+      <div class="container-fluid px-4">
+        <p class="statement-text">no construyo dashboards para llenar una pantalla, los construyo para que alguien decida mejor</p>
+      </div>
+    </section>
+
+    <!-- ================ RESUMEN DE LAS OTRAS PESTAÑAS ================ -->
+    <!-- 3 tarjetas cortas que resumen educación/experiencia/proyectos y
+         enlazan a las páginas completas. -->
     <section class="about">
       <div class="container-fluid px-4">
         <h2 class="section-title">Un resumen rápido</h2>
+        <!-- row de 3 columnas iguales (col-lg-4 x3 = 12) -->
         <div class="row gy-4">
           <div class="col-lg-4">
             <p class="about-eyebrow">Educación</p>
@@ -116,11 +191,24 @@
 
     <footer class="site-footer">
       <div class="container-fluid px-4">
-        <p>Ana Isabel Meza Espinosa</p>
+        <p>Ana Isabel Meza Espinosa — hecho con Bootstrap</p>
       </div>
     </footer>
 
+    <!-- JS de Bootstrap (bundle incluye Popper): necesario para que el botón
+         hamburguesa de la navbar funcione (el collapse). -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!--
+      includeHTML(id, archivo):
+      1. Hace fetch() del archivo HTML que le pasamos (navbar.html).
+      2. response.text() convierte la respuesta en un string de HTML.
+      3. Ese string se mete como innerHTML del elemento con el id indicado.
+      Así reutilizamos el mismo navbar.html en las 3 páginas sin copiarlo.
+      (Ojo: esto requiere que el sitio corra en un servidor local, tipo
+      MAMP o Live Server — fetch() no funciona abriendo el archivo directo
+      con doble clic por temas de seguridad del navegador).
+    -->
     <script>
         function includeHTML(id, archivo){
             fetch(archivo)
